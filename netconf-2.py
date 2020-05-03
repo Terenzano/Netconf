@@ -7,4 +7,4 @@ with manager.connect(host=router["host"], port=router["port"], username=router["
     for capability in m.server_capabilities:
         print('*' * 50)
         print(capability)
-    m.close_session()
+
