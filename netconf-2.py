@@ -8,3 +8,4 @@ with manager.connect(host=router["host"], port=router["port"], username=router["
         print('*' * 50)
         print(capability)
 
+    m.close_session()
