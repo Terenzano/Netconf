@@ -5,6 +5,9 @@ import xmltodict
 import xml.dom.minidom
 from pprint import pprint
 
+router = {"host": "10.10.20.181", "port": "22", "username": "cisco",
+          "password": "cisco"}
+
 # NETCONF filter to use
 config_template = open("config-temp-ietf-interfaces.xml").read()
 
@@ -19,11 +22,6 @@ if __name__ == '__main__':
     print("----------------------")
     print(netconf_config)
 
-if __name__ == '__main__':
-    with manager.connect(host=ios_xe1["address"], port=ios_xe1["port"],
-                         username=ios_xe1["username"],
-                         password=ios_xe1["password"],
-                         hostkey_verify=False) as m:
-
-        device_reply = m.edit_config(netconf_config, target="running")
-        print(device_reply)
+with manager.connect(host=router["host"], port=router["port"], username=router["username"], password=router["password"], hostkey_verify=False) as m:
+    device_reply = m.edit_config(netconf_config, target="running")
+    print(device_reply)
