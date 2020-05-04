@@ -1,7 +1,7 @@
 from ncclient import manager
 import xml.dom.minidom
 
-router = {"host": "10.10.20.181", "port": "22", "username": "cisco",
+router = {"host": "10.10.20.181", "port": "830", "username": "cisco",
           "password": "cisco"}
 
 netconf_filter = """

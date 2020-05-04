@@ -5,7 +5,7 @@ import xml.dom.minidom
 from pprint import pprint
 
 
-router = {"host": "10.10.20.181", "port": "22", "username": "cisco",
+router = {"host": "10.10.20.181", "port": "830", "username": "cisco",
           "password": "cisco"}
 
 # NETCONF filter to use
@@ -36,4 +36,6 @@ with manager.connect(host=router["host"], port=router["port"], username=router["
     print("Start")
     print(f"Name: {config['name']['#text']}")
     print(f"Description: {config['description']}")
+    print(f"IP: {config['ipv4']['address']['ip']}")
+    print(f"Operational_Status: {op_state['oper-status']}")
     print(f"Packets In {op_state['statistics']['in-unicast-pkts']}")
